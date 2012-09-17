@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Profile choser -->
+    <string name="profileTitle">Choose your connection mode :</string>
+    <string name="hostServBtn">Host Server</string>
+    <string name="joinServBtn">Join Server</string>
+    
+	<!-- Host Settings -->
+    <string name="portTitle">Set the host port:</string>
+    <string name="maxClients">Set the number maxmum of clients:</string>
+    <string name="maxChannels">Set the channel creation capacity for each clients:</string>
+    <string name="maxFileSize">Set the maximum size of an attachement file:</string>
+    <string name="hostName">Set the host username:</string>
+    <string name="connectionBtn">Create</string>
+    <string name="cancelBtn">Cancel</string>
+    
+    <!-- Client option -->
+    <string name="ipHost">Set the host IP address:</string>
+    <string name="portHostDest">Set th host port:</string>
+    <string name="clientUsername">Set you username:</string>
+    <string name="connectClientBtn">Connect</string>
+    <string name="backClientBtn">Cancel</string>
+    
+    <!-- menuClient option -->
+    <string name="whisp">Whisp</string>
+    <string name="mapBtn">Map</string>
+    <string name="send_file">Send file</string>
+    <string name="leave">Leave</string>
+    
+    <!-- Channel Settings -->
+    <string name="setNameChannel">Set the channel name</string>
+    <string name="setPasswordChannel">Set the channel password</string>
+    <string name="ChannelCancel">Cancel</string>
+    <string name="ChannelOk">Create</string>
+    
+    <!-- Channel List -->
+    <string name="createChannelBtn">Create new channel</string>
+    
+    <!-- Client Conversation List-->
+    <string name="contact">Contact</string>
+    <string name="preview">Preview</string>
+    <string name="date">Date</string>
+    
+    <!-- Client Conversation -->
+    <string name="send">Send</string>
+    <string name="option">Option</string>
+    
+    <string name="channelRow">ChannelRow</string>
+    <string name="channelNbClients">ChannelNbClients</string>
+    <string name="app_name">GeoChat</string>
+    
+    <!-- Popup password channel-->
+    <string name="popupText">Enter password:</string>
+    <string name="passwordValidateBtn">Validate</string>
+    <string name="passwordCancelBtn">Cancel</string>
+    
+    <!-- Popup whisp channel-->
+    <string name="popupWhispContact">Choose receiver:</string>
+    <string name="popupWhispMessage">Enter a message:</string>
+    <string name="whispValidateBtn">Validate</string>
+    <string name="whispCancelBtn">Cancel</string>
+    <string name="receiverUniqueList">Dude</string>
+    
+    <!-- Popup accept file-->
+    <string name="popupFileTitle">Do you want to download the file:</string>
+    <string name="popupFileName">File name</string>
+    <string name="acceptFileBtn">Accept</string>
+    <string name="refuseFileBtn">Refuse</string>
+    
+    <!-- Option page-->
+    <string name="activateGeoTitle">Geolocalisation activation:</string>
+    <string name="activateGeoBox">Activate</string>
+    <string name="timingGeoBox">Set the time between 2 localisation requests:</string>
+    <string name="optionOkBtn">Validate</string>
+    <string name="optionCancelBtn">Cancel</string>
+    
+    <!-- Menu option channel-->
+    <string name="optionMenuBtn">Options</string>
+    <string name="quitOptionBtn">Quit</string>
+    
+    <!-- Menu option map popup-->
+    <string name="whispTargetBtn">Whisp the target</string>
+    <string name="wizzTargetBtn">Wizz the target</string>
+    <string name="backTargetBtn">Back</string>
+    
+    <!--  FileSender -->
+    <string name="filePickBtn">Browse device memory</string>
+    <string name="filePickView">Selected file:</string>
+    <string name="filePathView">No file has been selected</string>
+    <string name="chooseReceiverBtn">Select receivers</string>
+    <string name="sendFileBtn">Send file</string>
+    
+    <string name="receiverListTitle">Available receivers:</string>
+    <string name="receiverListOkBtn">Select</string>
+    <string name="receiverName">Dude</string>
+    
+    <!--  Map -->
+    <string name="mapKey">0yk2S_smjWh8w5PeHJ555D3BYng_pV3j3HMjKlQ</string>
+    
+
+</resources>

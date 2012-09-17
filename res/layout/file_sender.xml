@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <TextView
+    	android:id="@+id/fileSenderTitle"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="@string/filePickView"
+    	android:textSize="24sp"/>
+    
+    <TextView
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_marginTop="10dp"
+    	android:layout_below="@+id/fileSenderTitle"
+    	android:id="@+id/file_path_text_view"
+    	android:text="@string/filePathView"
+    	android:textSize="18sp"/>
+    
+    <Button
+        android:id="@+id/start_file_picker_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/file_path_text_view"
+        android:layout_marginTop="15dp"
+        android:text="@string/filePickBtn" />
+
+    <Button
+    	android:id="@+id/chooseReceiverBtn"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_below="@+id/start_file_picker_button"
+    	android:layout_marginTop="15dp"
+    	android:text="@string/chooseReceiverBtn"/>
+
+    <Button
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_alignParentBottom="true"
+    	android:id="@+id/sendFileBtn"
+    	android:text="@string/sendFileBtn"/>
+    
+</RelativeLayout>

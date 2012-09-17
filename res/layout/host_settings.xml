@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/portTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/portTitle" />
+
+    <EditText
+        android:id="@+id/portEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/portTitle"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/maxClients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/portEdit"
+        android:text="@string/maxClients" />
+
+    <EditText
+        android:id="@+id/maxClientsEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/maxClients"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/maxChannels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/maxClientsEdit"
+        android:text="@string/maxChannels" />
+
+    <EditText
+        android:id="@+id/maxChannelsEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/maxChannels"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/maxFileSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/maxChannelsEdit"
+        android:text="@string/maxFileSize" />
+
+    <EditText
+        android:id="@+id/maxFileSizeEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/maxFileSize"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/hostName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/maxFileSizeEdit"
+        android:text="@string/hostName" />
+
+    <EditText
+        android:id="@+id/hostNameEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hostName"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/launchHostBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hostNameEdit"
+        android:layout_alignParentRight="true"
+        android:text="@string/connectionBtn" />
+
+    <Button
+        android:id="@+id/cancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hostNameEdit"
+     	android:layout_toLeftOf="@id/launchHostBtn"
+        android:text="@string/cancelBtn" />
+
+</RelativeLayout>

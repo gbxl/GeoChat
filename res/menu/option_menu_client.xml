@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/whisp"
+          android:icon="@android:drawable/ic_menu_edit"
+          android:title="@string/whisp" />
+    <item android:id="@+id/map"
+          android:icon="@android:drawable/ic_menu_mapmode"
+          android:title="@string/mapBtn" />
+    <item android:id="@+id/send_file"
+          android:icon="@android:drawable/ic_menu_upload"
+          android:title="@string/send_file" />
+    <item android:id="@+id/leave"
+          android:icon="@android:drawable/ic_menu_close_clear_cancel"
+          android:title="@string/leave" />
+</menu>

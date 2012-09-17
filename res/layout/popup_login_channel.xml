@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@android:color/background_light">
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/background_dark" >
+
+        <TextView
+            android:id="@+id/popupTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="3dip"
+            android:text="@string/popupText" />
+
+        <EditText
+            android:id="@+id/popupEditPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popupTitle"
+            android:layout_marginTop="10dip"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/validatePasswordBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/popupEditPassword"
+            android:text="@string/passwordValidateBtn" />
+
+        <Button
+            android:id="@+id/cancelPasswordBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/validatePasswordBtn"
+            android:layout_toLeftOf="@+id/validatePasswordBtn"
+            android:text="@string/passwordCancelBtn" />
+    </RelativeLayout>
+
+</LinearLayout>

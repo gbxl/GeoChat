@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/activateGeoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/activateGeoTitle" />
+
+    <CheckBox
+        android:id="@+id/activateGeoBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_below="@+id/activateGeoTitle"
+        android:text="@string/activateGeoBox" />
+
+    <TextView
+        android:id="@+id/timingGeoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_below="@+id/activateGeoBox"
+        android:text="@string/timingGeoBox" />
+
+    <EditText
+        android:id="@+id/timingGeoEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_below="@+id/timingGeoTitle"
+        android:ems="10"
+        android:inputType="number"/>
+
+    <Button
+        android:id="@+id/optionOkBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/timingGeoEdit"
+        android:text="@string/optionOkBtn" />
+
+    <Button
+        android:id="@+id/optionCancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:layout_toLeftOf="@+id/optionOkBtn"
+        android:layout_below="@+id/timingGeoEdit"
+        android:text="@string/optionCancelBtn" />
+
+</RelativeLayout>

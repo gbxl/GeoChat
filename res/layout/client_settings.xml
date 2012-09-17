@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
+	<TextView
+        android:id="@+id/ipHost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="@string/ipHost" />
+	
+    <EditText
+        android:id="@+id/ipHostEdit"
+        android:inputType="text"
+        android:digits="0123456789."
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ipHost"
+        android:layout_alignParentLeft="true"
+        android:ems="10" />
+    
+    <TextView
+        android:id="@+id/portHostDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ipHostEdit"
+        android:layout_alignParentLeft="true"
+        android:text="@string/portHostDest" />
+    
+	<EditText
+        android:id="@+id/portHostDestEdit"
+        android:inputType="number"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/portHostDest"
+        android:layout_alignParentLeft="true"
+        android:ems="10"/>
+
+    <TextView
+        android:id="@+id/clientUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/portHostDestEdit"
+        android:text="@string/clientUsername" />
+
+    <EditText
+        android:id="@+id/clientUsernameEdit"
+        android:inputType="text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clientUsername"
+        android:ems="10"/>
+    
+    <Button
+        android:id="@+id/connectClientBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clientUsernameEdit"
+        android:layout_alignParentRight="true"
+        android:text="@string/connectClientBtn"/>
+	
+    <Button
+        android:id="@+id/backClientBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clientUsernameEdit"
+        android:layout_toLeftOf="@+id/connectClientBtn"
+        android:text="@string/backClientBtn" />
+    
+</RelativeLayout>

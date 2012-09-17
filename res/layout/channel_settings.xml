@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    
+	<TextView
+        android:id="@+id/nameChannelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setNameChannel" />
+
+    <EditText
+        android:id="@+id/channelNameEdit"
+        android:inputType="text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameChannelTextView"
+        android:ems="10"/>
+    
+    <TextView
+        android:id="@+id/passwordChannelTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/channelNameEdit"
+        android:text="@string/setPasswordChannel" />
+
+    <EditText
+        android:id="@+id/channelPasswordEdit"
+        android:inputType="text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordChannelTextView"
+        android:ems="10"/>
+    
+    <Button
+        android:id="@+id/channelOKBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/channelPasswordEdit"
+        android:layout_alignParentRight="true"
+        android:text="@string/ChannelOk" />
+    
+    <Button
+        android:id="@+id/channelCancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/channelPasswordEdit"
+        android:layout_toLeftOf="@+id/channelOKBtn"
+        android:text="@string/ChannelCancel" />
+    
+</RelativeLayout>

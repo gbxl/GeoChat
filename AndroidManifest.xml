@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fr.utbm.geochat"
+    android:versionCode="1"
+    android:versionName="1.0" >
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+<uses-permission android:name="android.permission.WAKE_LOCK"/>
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_GPS" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+<uses-permission android:name="android.permission.LOCATION" />
+<uses-permission android:name="android.permission.VIBRATE"/>
+
+    <uses-sdk android:minSdkVersion="7" />
+
+	<application
+        android:name="fr.utbm.geochat.GeoChat"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <uses-library android:name="com.google.android.maps" />
+	    <activity android:name="fr.utbm.geochat.activity.ProfileChooser"
+	              android:label="@string/app_name">
+	        <intent-filter>
+	            <action android:name="android.intent.action.MAIN" />
+	            <category android:name="android.intent.category.LAUNCHER" />
+	        </intent-filter>
+	    </activity>   
+	    <activity android:name="fr.utbm.geochat.activity.HostSettings"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.ClientSettings"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.ChannelSettings"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.ChannelList"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.MessagesList"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.MapTargetOption"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.OptionMenu">
+	    	<intent-filter>
+	            <action android:name="android.intent.action.MAIN" />
+	        </intent-filter>
+	    </activity>
+	    <activity android:name="fr.utbm.geochat.activity.GeoMap">
+	     	<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+	    </activity>
+	    <activity android:name="fr.utbm.geochat.activity.FileBrowser"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.FileSender"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.ReceiverList"></activity>
+	    <activity android:name="fr.utbm.geochat.activity.ReceiverListUnique"></activity>
+	    <service android:name="fr.utbm.geochat.client.ClientGeolocalisationService"></service>
+	    <service android:name="fr.utbm.geochat.host.HostGeolocalisationService"></service>
+    </application>
+    
+</manifest>

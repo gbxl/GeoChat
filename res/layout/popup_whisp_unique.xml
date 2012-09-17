@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@android:color/background_light">
+    
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/background_dark" >
+
+        <TextView
+            android:id="@+id/popupWhispMess"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:layout_marginLeft="3dip"
+            android:text="@string/popupWhispMessage" />
+        
+        <EditText
+            android:id="@+id/popupEditMessWhisp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/popupWhispMess"
+            android:singleLine="false"
+            android:layout_marginTop="10dip"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/validateWhispBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/popupEditMessWhisp"
+            android:text="@string/whispValidateBtn" />
+
+        <Button
+            android:id="@+id/cancelWhispBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/validateWhispBtn"
+            android:layout_toLeftOf="@+id/validateWhispBtn"
+            android:text="@string/whispCancelBtn" />
+    </RelativeLayout>
+
+</LinearLayout>

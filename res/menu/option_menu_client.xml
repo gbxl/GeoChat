@@ -9,7 +9,7 @@
           android:title="@string/mapBtn" />
     <item android:id="@+id/send_file"
           android:icon="@android:drawable/ic_menu_upload"
-          android:title="@string/send_file" />
+          android:title="@string/sendFile" />
     <item android:id="@+id/leave"
           android:icon="@android:drawable/ic_menu_close_clear_cancel"
           android:title="@string/leave" />

@@ -8,11 +8,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-/**
- * Classe permettant de choisir un profile
- * 
- *
- */
 public class ProfileChooser extends Activity {
 
 	@Override
@@ -20,7 +15,7 @@ public class ProfileChooser extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		Button host = (Button)findViewById(R.id.hostServBtn);
+		Button host = (Button) findViewById(R.id.hostServBtn);
 		host.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -30,7 +25,7 @@ public class ProfileChooser extends Activity {
 			}
 		});
 
-		Button client = (Button)findViewById(R.id.joinServBtn);
+		Button client = (Button) findViewById(R.id.joinServBtn);
 		client.setOnClickListener(new OnClickListener() {
 
 			@Override

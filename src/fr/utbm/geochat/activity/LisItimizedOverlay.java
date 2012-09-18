@@ -13,11 +13,6 @@ import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
-/**
- * Classe permettant de parametrer les points sur la carte
- *
- *
- */
 public class LisItimizedOverlay extends ItemizedOverlay<OverlayItem> {
 
 	private Context context;
@@ -45,34 +40,33 @@ public class LisItimizedOverlay extends ItemizedOverlay<OverlayItem> {
 	@Override
 	protected boolean onTap(int index) {
 		final OverlayItem item = arrayListOverlayItem.get(index);
-		/*AlertDialog.Builder dialog = new AlertDialog.Builder(context);
-		dialog.setTitle(item.getTitle());
-		dialog.setMessage(item.getSnippet());
-		dialog.show();
-		*/
-		
-	 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setMessage(item.getSnippet())
-               .setTitle(item.getTitle())
-               .setCancelable(true)
-               .setPositiveButton("Options", new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                	   Intent intent = new Intent(context, MapTargetOption.class);
-                	   intent.putExtra("receiver", item.getSnippet());
-                	   context.startActivity(intent);
-                       dialog.dismiss();
-                   }
-               })
-               .setNegativeButton("Close window", new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
-                       dialog.dismiss();
-                   }
-               });
-        
-        AlertDialog alert = builder.create();
-        alert.show();
-	        
-	        
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		builder.setMessage(item.getSnippet())
+				.setTitle(item.getTitle())
+				.setCancelable(true)
+				.setPositiveButton("Options",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int id) {
+								Intent intent = new Intent(context,
+										MapTargetOption.class);
+								intent.putExtra("receiver", item.getSnippet());
+								context.startActivity(intent);
+								dialog.dismiss();
+							}
+						})
+				.setNegativeButton("Close window",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int id) {
+								dialog.dismiss();
+							}
+						});
+
+		AlertDialog alert = builder.create();
+		alert.show();
+
 		return true;
 	}
 
@@ -80,13 +74,11 @@ public class LisItimizedOverlay extends ItemizedOverlay<OverlayItem> {
 		arrayListOverlayItem.add(overlay);
 		populate();
 	}
-	
+
 	@Override
-    public void draw(Canvas canvas, MapView mapView, boolean shadow)
-    {
-        if(!shadow)
-        {
-            super.draw(canvas, mapView, false);
-        }
-    }
+	public void draw(Canvas canvas, MapView mapView, boolean shadow) {
+		if (!shadow) {
+			super.draw(canvas, mapView, false);
+		}
+	}
 }

@@ -16,22 +16,16 @@ import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 
-/**
- * Classe permettant l'interaction entre l'affichage et le system pour les
- * utilisateur envoyant des messages.
- *
- *
- */
 public class ReceiverAdapter extends BaseAdapter {
 	private Context context;
 	private List<String> receivers;
 	private Set<String> selectedReceivers = new HashSet<String>();
-	
-	public ReceiverAdapter(Context context, List<String>users) {
+
+	public ReceiverAdapter(Context context, List<String> users) {
 		this.context = context;
 		this.receivers = new ArrayList<String>(users);
 	}
-	
+
 	public Set<String> getReceivers() {
 		return selectedReceivers;
 	}
@@ -40,7 +34,7 @@ public class ReceiverAdapter extends BaseAdapter {
 		this.receivers = new ArrayList<String>(users);
 		Collections.sort(this.receivers);
 		notifyDataSetChanged();
-		
+
 	}
 
 	@Override
@@ -64,27 +58,29 @@ public class ReceiverAdapter extends BaseAdapter {
 			throw new IndexOutOfBoundsException();
 		}
 		final String entry = receivers.get(position);
-		
+
 		if (convertView == null) {
-			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = inflater.inflate(R.layout.receiver_name, null);
 		}
-		
-		CheckBox receiverName = (CheckBox) convertView.findViewById(R.id.receiverNameView);
+
+		CheckBox receiverName = (CheckBox) convertView
+				.findViewById(R.id.receiverNameView);
 		receiverName.setText(entry);
 		receiverName.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-            	if (v.isSelected() == false) {
-            		v.setSelected(true);
-            		selectedReceivers.add(entry);
-            	}
-            	else {
-            		v.setSelected(false);
-            		selectedReceivers.remove(entry);
-            	}
-            }
-        });
-		
+			@Override
+			public void onClick(View v) {
+				if (v.isSelected() == false) {
+					v.setSelected(true);
+					selectedReceivers.add(entry);
+				} else {
+					v.setSelected(false);
+					selectedReceivers.remove(entry);
+				}
+			}
+		});
+
 		return convertView;
 	}
 

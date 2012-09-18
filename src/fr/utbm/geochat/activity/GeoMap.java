@@ -22,96 +22,94 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Bundle;
 
-/**
- * Classe permettant d'afficher une carte qui contiendra l'ensemble des geolocalisations disponible.
- * Il sera possible d'interagir avec les utilisateurs directement à partir de leur point de localisation.
- * 
- *
- */
 public class GeoMap extends MapActivity {
 
 	private MapView mapView;
 	private MapController mapController;
 	private Map<String, Location> listLocations;
-	String user;
-	//private Map<String,GeoPoint> listGeoPoints;
-	//private List<OverlayItem> listOverlay;
+	private String user;
 
 	@Override
-	public void onCreate(Bundle savedInstanceState) 
-	{
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.my_map);
-		
+
 		addAllUsers();
-		
+
 		mapView = (MapView) this.findViewById(R.id.mapView);
 		mapView.setBuiltInZoomControls(true);
-		
-		Drawable drawable = this.getResources().getDrawable(R.drawable.ic_launcher);
-		LisItimizedOverlay itemizedoverlay = new LisItimizedOverlay(drawable,this);
-		
+
+		Drawable drawable = this.getResources().getDrawable(
+				R.drawable.ic_launcher);
+		LisItimizedOverlay itemizedoverlay = new LisItimizedOverlay(drawable,
+				this);
+
 		GeoPoint geoPoint, mainGeoPoint = null;
-		Set<String> listUsers =  new HashSet<String>(listLocations.keySet());
-		List<Location> listLocs = new ArrayList<Location>(listLocations.values());
+		Set<String> listUsers = new HashSet<String>(listLocations.keySet());
+		List<Location> listLocs = new ArrayList<Location>(
+				listLocations.values());
 		Iterator<Location> it = listLocs.iterator();
 		Iterator<String> it2 = listUsers.iterator();
-		
-		
-		while(it.hasNext() && it2.hasNext()) {
+
+		while (it.hasNext() && it2.hasNext()) {
 			Location l = it.next();
 			String s = it2.next();
-			geoPoint = new GeoPoint((int)(l.getLatitude()*1E6), (int)(l.getLongitude()*1E6));
-			//listGeoPoints.put(s,geoPoint);
+			geoPoint = new GeoPoint((int) (l.getLatitude() * 1E6),
+					(int) (l.getLongitude() * 1E6));
+			// listGeoPoints.put(s,geoPoint);
 			OverlayItem overlayitem = new OverlayItem(geoPoint, "", s);
 			itemizedoverlay.addOverlayItem(overlayitem);
-			
-			if(s.equals(user)) {
+
+			if (s.equals(user)) {
 				mainGeoPoint = geoPoint;
-				Drawable icon = getResources().getDrawable(R.drawable.gmap_marker);
-				icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
+				Drawable icon = getResources().getDrawable(
+						R.drawable.gmap_marker);
+				icon.setBounds(0, 0, icon.getIntrinsicWidth(),
+						icon.getIntrinsicHeight());
 				overlayitem.setMarker(icon);
-			}
-			else
-			{
-				Drawable icon = getResources().getDrawable(R.drawable.gmap_marker_all);
-				icon.setBounds(0, 0, icon.getIntrinsicWidth(), icon.getIntrinsicHeight());
+			} else {
+				Drawable icon = getResources().getDrawable(
+						R.drawable.gmap_marker_all);
+				icon.setBounds(0, 0, icon.getIntrinsicWidth(),
+						icon.getIntrinsicHeight());
 				overlayitem.setMarker(icon);
 			}
 		}
-		
+
 		List<Overlay> mapOverlays = mapView.getOverlays();
 		mapOverlays.add(itemizedoverlay);
-		
+
 		try {
 			mapController = mapView.getController();
 			mapController.setCenter(mainGeoPoint);
 			mapController.setZoom(10);
-		}catch (Exception e) {
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
 	public void addAllUsers() {
-		if(GeoChat.getInstance().getClient()!=null) {
+		if (GeoChat.getInstance().getClient() != null) {
 			user = GeoChat.getInstance().getClient().getUsername();
-			listLocations = new HashMap<String,Location>(GeoChat.getInstance().getClient().getLocations());
+			listLocations = new HashMap<String, Location>(GeoChat.getInstance()
+					.getClient().getLocations());
 			Location l = GeoChat.getInstance().getClient().getMyLocation();
-			if(l!=null) {
+			if (l != null) {
 				listLocations.put(user, l);
 			}
-		}
-		else if(GeoChat.getInstance().getHost()!=null) {
+		} else if (GeoChat.getInstance().getHost() != null) {
 			user = GeoChat.getInstance().getHost().getUsername();
-			listLocations = new HashMap<String,Location>(GeoChat.getInstance().getHost().getLocations());
+			listLocations = new HashMap<String, Location>(GeoChat.getInstance()
+					.getHost().getLocations());
 			Location l = GeoChat.getInstance().getHost().getMyLocation();
-			if(l!=null) {
+			if (l != null) {
 				listLocations.put(user, l);
 			}
 		}
 	}
-	
-	protected boolean isRouteDisplayed() 
-	{
+
+	@Override
+	protected boolean isRouteDisplayed() {
 		return false;
 	}
 }

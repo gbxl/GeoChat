@@ -25,7 +25,7 @@
     <!-- menuClient option -->
     <string name="whisp">Whisp</string>
     <string name="mapBtn">Map</string>
-    <string name="send_file">Send file</string>
+    <string name="sendFile">Send file</string>
     <string name="leave">Leave</string>
     
     <!-- Channel Settings -->
@@ -48,7 +48,6 @@
     
     <string name="channelRow">ChannelRow</string>
     <string name="channelNbClients">ChannelNbClients</string>
-    <string name="app_name">GeoChat</string>
     
     <!-- Popup password channel-->
     <string name="popupText">Enter password:</string>
@@ -97,6 +96,9 @@
     
     <!--  Map -->
     <string name="mapKey">0yk2S_smjWh8w5PeHJ555D3BYng_pV3j3HMjKlQ</string>
+    
+    <!-- General -->
+    <string name="appName">GeoChat</string>
     
 
 </resources>

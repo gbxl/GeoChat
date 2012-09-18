@@ -10,11 +10,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
- * Classe permettant d'afficher les parametres de création de channels
- *
- *
- */
 public class ChannelSettings extends Activity {
 
 	@Override
@@ -42,20 +37,20 @@ public class ChannelSettings extends Activity {
 				String chanName = channelName.getText().toString();
 				String chanPassword = channelPassword.getText().toString();
 
-				if(GeoChat.getInstance().getHost()!=null) {
-					if(!chanName.equals("") && chanPassword.equals("")) {
+				if (GeoChat.getInstance().getHost() != null) {
+					if (!chanName.equals("") && chanPassword.equals("")) {
 						GeoChat.getInstance().getHost().createChannel(chanName);
+					} else if (!chanName.equals("") && !chanPassword.equals("")) {
+						GeoChat.getInstance().getHost()
+								.createPrivateChannel(chanName, chanPassword);
 					}
-					else if(!chanName.equals("") && !chanPassword.equals("")) {
-						GeoChat.getInstance().getHost().createPrivateChannel(chanName, chanPassword);
-					}
-				}
-				else if(GeoChat.getInstance().getClient()!=null) {
-					if(!chanName.equals("") && chanPassword.equals("")) {
-						GeoChat.getInstance().getClient().createChannel(chanName);
-					}
-					else if(!chanName.equals("") && !chanPassword.equals("")) {
-						GeoChat.getInstance().getClient().createPrivateChannel(chanName, chanPassword);
+				} else if (GeoChat.getInstance().getClient() != null) {
+					if (!chanName.equals("") && chanPassword.equals("")) {
+						GeoChat.getInstance().getClient()
+								.createChannel(chanName);
+					} else if (!chanName.equals("") && !chanPassword.equals("")) {
+						GeoChat.getInstance().getClient()
+								.createPrivateChannel(chanName, chanPassword);
 					}
 				}
 

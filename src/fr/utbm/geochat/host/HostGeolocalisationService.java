@@ -12,40 +12,34 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.widget.Toast;
 
-/**
- * Service de géolocalisation lié au serveur
- * 
- *
- */
-public class HostGeolocalisationService  extends Service {
-	
+public class HostGeolocalisationService extends Service {
+
 	private LocationManager locationManager = null;
 	private float distance = 0;
-	private Long time = (long) 60000;
+	private long time = 60000;
 	private String bestProvider;
-	
-	private LocationListener onLocationChange = new LocationListener() {
-		
-		 public void onStatusChanged(String provider, int status, Bundle extras)
-		 {
-		 }
-		 
-		 public void onProviderEnabled(String provider)
-		 {
-		 }
-		 
-		 public void onProviderDisabled(String provider)
-		 {
-		 }
-		 
-		 public void onLocationChanged(Location location)
-		 {
-			 sendData(location);
-		 }
-		 
-		
+
+	private LocationListener locationListener = new LocationListener() {
+
+		@Override
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+		}
+
+		@Override
+		public void onProviderEnabled(String provider) {
+		}
+
+		@Override
+		public void onProviderDisabled(String provider) {
+		}
+
+		@Override
+		public void onLocationChanged(Location location) {
+			sendData(location);
+		}
+
 	};
- 
+
 	private void sendData(Location location) {
 		try {
 			GeoChat.getInstance().getHost().setMyLocation(location);
@@ -54,38 +48,41 @@ public class HostGeolocalisationService  extends Service {
 			e.printStackTrace();
 		}
 	}
-	
+
+	@Override
 	public IBinder onBind(Intent arg0) {
 		return null;
 	}
-	 
+
+	@Override
 	public void onCreate() {
 		super.onCreate();
-		 	
+
 	}
- 
+
+	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		try {
-			time = new Long(GeoChat.getInstance().getTimeGps())*1000;
+			time = GeoChat.getInstance().getTimeGps() * 1000;
 			launchMyService();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		catch (Exception e) {
-		}
-		
+
 		return super.onStartCommand(intent, flags, startId);
 	}
-	 
+
+	@Override
 	public void onDestroy() {
 		super.onDestroy();
-		try{
-			locationManager.removeUpdates(onLocationChange);
-		}
-		catch (Exception e)
-		{
-			
+		try {
+			locationManager.removeUpdates(locationListener);
+		} catch (Exception e) {
+			e.printStackTrace();
+
 		}
 	}
-	
+
 	public void launchMyService() {
 
 		try {
@@ -99,26 +96,26 @@ public class HostGeolocalisationService  extends Service {
 
 			locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 			bestProvider = locationManager.getBestProvider(c, true);
-			
-			if(bestProvider.equals(LocationManager.NETWORK_PROVIDER) || bestProvider.equals(LocationManager.GPS_PROVIDER))
-			{
+
+			if (bestProvider.equals(LocationManager.NETWORK_PROVIDER)
+					|| bestProvider.equals(LocationManager.GPS_PROVIDER)) {
 				try {
-					Location location = locationManager.getLastKnownLocation(bestProvider);
-					if(location != null) {
+					Location location = locationManager
+							.getLastKnownLocation(bestProvider);
+					if (location != null) {
 						sendData(location);
 					}
-					locationManager.requestLocationUpdates(bestProvider, time, distance, onLocationChange);
-				}
-				catch (IllegalArgumentException e) {
+					locationManager.requestLocationUpdates(bestProvider, time,
+							distance, locationListener);
+				} catch (IllegalArgumentException e) {
 					Context context = getApplicationContext();
 					CharSequence text = "No providers are available";
 					int duration = Toast.LENGTH_SHORT;
-	
+
 					Toast toast = Toast.makeText(context, text, duration);
 					toast.show();
 				}
-			}
-			else {
+			} else {
 				Context context = getApplicationContext();
 				CharSequence text = "No providers are available";
 				int duration = Toast.LENGTH_SHORT;
@@ -126,8 +123,8 @@ public class HostGeolocalisationService  extends Service {
 				Toast toast = Toast.makeText(context, text, duration);
 				toast.show();
 			}
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

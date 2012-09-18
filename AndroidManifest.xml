@@ -20,7 +20,7 @@
 	<application
         android:name="fr.utbm.geochat.GeoChat"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
+        android:label="@string/appName" >
         <uses-library android:name="com.google.android.maps" />
 	    <activity android:name="fr.utbm.geochat.activity.ProfileChooser"
 	              android:label="@string/app_name">

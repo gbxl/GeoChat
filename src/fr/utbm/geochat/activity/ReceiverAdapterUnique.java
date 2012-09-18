@@ -15,23 +15,18 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckedTextView;
 
-/**
- * 
- * Classe pour interagir lorsque l'on uniquement un seul utilisateur qui enverra des messages.
- *
- */
 public class ReceiverAdapterUnique extends BaseAdapter {
 	private Context context;
 	private List<String> receivers;
 	private String selectedReceivers;
 	private CheckedTextView receiverName;
 	private boolean isChecked = false;
-	
-	public ReceiverAdapterUnique(Context context, List<String>users) {
+
+	public ReceiverAdapterUnique(Context context, List<String> users) {
 		this.context = context;
 		this.receivers = new ArrayList<String>(users);
 	}
-	
+
 	public String getReceivers() {
 		return selectedReceivers;
 	}
@@ -40,7 +35,7 @@ public class ReceiverAdapterUnique extends BaseAdapter {
 		this.receivers = new ArrayList<String>(users);
 		Collections.sort(this.receivers);
 		notifyDataSetChanged();
-		
+
 	}
 
 	@Override
@@ -64,24 +59,24 @@ public class ReceiverAdapterUnique extends BaseAdapter {
 			throw new IndexOutOfBoundsException();
 		}
 		final String entry = receivers.get(position);
-		
+
 		if (convertView == null) {
-			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			convertView = inflater.inflate(R.layout.receiver_name_unique , null);
+			LayoutInflater inflater = (LayoutInflater) context
+					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			convertView = inflater.inflate(R.layout.receiver_name_unique, null);
 		}
-		
-		receiverName = (CheckedTextView) convertView.findViewById(R.id.user_name);
+
+		receiverName = (CheckedTextView) convertView
+				.findViewById(R.id.user_name);
 		receiverName.setText(entry);
 		receiverName.setOnTouchListener(new View.OnTouchListener() {
-		
 
 			@Override
 			public boolean onTouch(View arg0, MotionEvent arg1) {
 				if (isChecked == false) {
 					selectedReceivers = entry;
 					isChecked = true;
-				}
-				else {
+				} else {
 					isChecked = false;
 					selectedReceivers = "";
 				}

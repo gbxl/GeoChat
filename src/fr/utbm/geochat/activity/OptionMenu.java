@@ -13,56 +13,55 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-/**
- * 
- * Classe d'affichage des options disponible pour les menus.
- *
- */
 public class OptionMenu extends Activity {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.option_menu);
-		
+
 		final EditText timeGps = (EditText) findViewById(R.id.timingGeoEdit);
-		timeGps.setText(""+GeoChat.getInstance().getTimeGps());
-		
+		timeGps.setText("" + GeoChat.getInstance().getTimeGps());
+
 		final CheckBox checkBoxActivation = (CheckBox) findViewById(R.id.activateGeoBox);
-		checkBoxActivation.setChecked(GeoChat.getInstance().isGeolocalisationActivate());
-		
-		Button cancel = (Button)findViewById(R.id.optionCancelBtn);
+		checkBoxActivation.setChecked(GeoChat.getInstance()
+				.isGeolocalisationActivate());
+
+		Button cancel = (Button) findViewById(R.id.optionCancelBtn);
 		cancel.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				
+
 				startActivity(new Intent(v.getContext(), ChannelList.class));
 			}
 		});
 
-		Button validation = (Button)findViewById(R.id.optionOkBtn);
+		Button validation = (Button) findViewById(R.id.optionOkBtn);
 		validation.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 
-				GeoChat.getInstance().setGeolocalisationActivate(checkBoxActivation.isChecked());
-				GeoChat.getInstance().setTimeGps(Integer.parseInt(timeGps.getText().toString()));
-				
-				if(GeoChat.getInstance().isGeolocalisationActivate()) {
-					if(GeoChat.getInstance().getClient()!=null) {
-						getApplication().startService(new Intent(OptionMenu.this, ClientGeolocalisationService.class));
+				GeoChat.getInstance().setGeolocalisationActivate(
+						checkBoxActivation.isChecked());
+				GeoChat.getInstance().setTimeGps(
+						Integer.parseInt(timeGps.getText().toString()));
+
+				if (GeoChat.getInstance().isGeolocalisationActivate()) {
+					if (GeoChat.getInstance().getClient() != null) {
+						getApplication().startService(
+								new Intent(OptionMenu.this,
+										ClientGeolocalisationService.class));
+					} else if (GeoChat.getInstance().getHost() != null) {
+						getApplication().startService(
+								new Intent(OptionMenu.this,
+										HostGeolocalisationService.class));
 					}
-					else if(GeoChat.getInstance().getHost()!=null) {
-						getApplication().startService(new Intent(OptionMenu.this, HostGeolocalisationService.class));
-					}
-				}
-				else if(!GeoChat.getInstance().isGeolocalisationActivate()) {
-					if(GeoChat.getInstance().getClient()!=null) {
+				} else if (!GeoChat.getInstance().isGeolocalisationActivate()) {
+					if (GeoChat.getInstance().getClient() != null) {
 						GeoChat.getInstance().getClient().stopServiceGPS();
-					}
-					else if(GeoChat.getInstance().getHost()!=null) {
+					} else if (GeoChat.getInstance().getHost() != null) {
 						GeoChat.getInstance().getHost().stopServiceGPS();
 					}
 				}
